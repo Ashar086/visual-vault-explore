@@ -45,10 +45,19 @@ const Index = () => {
 
   // Initial load
   useEffect(() => {
+    // Display loading toast on initial load
+    if (currentPage === 1 && !searchQuery) {
+      toast.info('Loading curated images...', { id: 'loading-toast', duration: 1000 });
+    }
+    
     fetchImages('', 1);
   }, [fetchImages]);
 
   const handleSearch = (query: string) => {
+    if (query) {
+      toast.info(`Searching for "${query}"...`, { id: 'search-toast', duration: 1500 });
+    }
+    
     setSearchQuery(query);
     setCurrentPage(1);
     fetchImages(query, 1);
@@ -86,7 +95,33 @@ const Index = () => {
     if (tab === 'explore' && images.length === 0) {
       fetchImages('', 1);
     }
+    
+    // Show toast when switching to favorites tab
+    if (tab === 'favorites') {
+      if (savedImages.length === 0) {
+        toast.info('No favorites yet. Save some images first!');
+      } else {
+        toast.info(`Viewing ${savedImages.length} favorites`);
+      }
+    }
   };
+
+  // Handle keyboard navigation for viewer
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isViewerOpen) return;
+      
+      if (e.key === 'Escape') {
+        handleViewerClose();
+      }
+    };
+    
+    window.addEventListener('keydown', handleKeyDown);
+    
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isViewerOpen]);
 
   return (
     <div className="min-h-screen bg-background">
