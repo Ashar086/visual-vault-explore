@@ -2,7 +2,7 @@
 import { ImageData } from '@/components/ImageCard';
 
 // Using Pexels API
-const API_KEY = 'pqcBiLN4Q9KsIp495w3qVGG4JgMbeEBzeg1LHpPtTgf0W7TnQGsOvSzu'; // This is a demo key, should be replaced with your own
+const API_KEY = 'PxHkW7PErSNJSA0HmvPwNlcdaBUlVlsDFYgQ8okDVrSlESaeAMpvS6g1'; // Updated with actual API key
 const BASE_URL = 'https://api.pexels.com/v1';
 
 export interface PexelsResponse {
