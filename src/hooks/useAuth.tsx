@@ -4,7 +4,9 @@ import { initializeApp } from 'firebase/app';
 import { 
   getAuth, 
   GoogleAuthProvider, 
-  signInWithPopup, 
+  signInWithPopup,
+  signInWithRedirect,
+  getRedirectResult,
   onAuthStateChanged,
   User as FirebaseUser,
   signOut as firebaseSignOut 
@@ -26,6 +28,10 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
+// Add additional scopes if needed
+googleProvider.addScope('https://www.googleapis.com/auth/userinfo.email');
+googleProvider.addScope('https://www.googleapis.com/auth/userinfo.profile');
+
 // Type definitions
 type AuthContextType = {
   user: FirebaseUser | null;
@@ -42,7 +48,26 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   const [user, setUser] = useState<FirebaseUser | null>(null);
   const [loading, setLoading] = useState(true);
 
+  // Check for redirect result on initial load
   useEffect(() => {
+    const checkRedirect = async () => {
+      try {
+        const result = await getRedirectResult(auth);
+        if (result && result.user) {
+          setUser(result.user);
+          toast.success(`Welcome, ${result.user.displayName || 'User'}!`);
+        }
+      } catch (error) {
+        console.error('Error with redirect result:', error);
+        toast.error('Authentication failed. Please try again.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    checkRedirect();
+
+    // Subscribe to auth state changes
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
       setLoading(false);
@@ -51,13 +76,17 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return () => unsubscribe();
   }, []);
 
+  // For popup sign-in method
   const signIn = async (): Promise<void> => {
     try {
+      setLoading(true);
       const result = await signInWithPopup(auth, googleProvider);
       toast.success(`Welcome, ${result.user.displayName || 'User'}!`);
     } catch (error) {
       console.error('Error signing in:', error);
       toast.error('Failed to sign in with Google. Please try again.');
+    } finally {
+      setLoading(false);
     }
   };
 
