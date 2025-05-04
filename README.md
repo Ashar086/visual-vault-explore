@@ -78,3 +78,8 @@ This project is built with:
 - Unsplash API: Fetches high-quality images and metadata.
 
 - Supabase: For Authentication and database
+
+
+# COntact With me:
+## 🌐 Socials:
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/muhammad-ashar-ishfaq/)
