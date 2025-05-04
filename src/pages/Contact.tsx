@@ -6,7 +6,7 @@ import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, For
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
-import { GitHub, Linkedin } from 'lucide-react';
+import { Github, Linkedin } from 'lucide-react';
 import { toast } from '@/components/ui/sonner';
 
 type FormData = {
@@ -62,7 +62,7 @@ const Contact = () => {
                     rel="noopener noreferrer"
                     className="bg-gray-800 text-white p-3 rounded-full hover:bg-gray-700 transition-colors"
                   >
-                    <GitHub size={24} />
+                    <Github size={24} />
                   </a>
                   <a
                     href="https://www.linkedin.com/in/muhammad-ashar-ishfaq/"
