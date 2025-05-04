@@ -1,4 +1,3 @@
-
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 import { initializeApp } from 'firebase/app';
 import { 
@@ -15,12 +14,12 @@ import { toast } from '@/components/ui/sonner';
 
 // Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyD1w1V-s7kySWWQJSyLdMK9cY9IEJL-HGs",
-  authDomain: "artvibe-app.firebaseapp.com",
-  projectId: "artvibe-app",
-  storageBucket: "artvibe-app.appspot.com",
-  messagingSenderId: "208475903024",
-  appId: "1:208475903024:web:6eaa9e91249d5ddc3ae6f4"
+  apiKey: "AIzaSyC17nDFc_wh29SNZuzJliMyU72qhPRRvJA",
+  authDomain: "visual-vault-719e5.firebaseapp.com",
+  projectId: "visual-vault-719e5",
+  storageBucket: "visual-vault-719e5.appspot.com",
+  messagingSenderId: "827580227082",
+  appId: "1:827580227082:web:3ef7f8a2308f0741fe5819"
 };
 
 // Initialize Firebase
