@@ -1,30 +1,41 @@
-# Welcome to your Lovable project
+# Image Gallery Project
 
-## Project info
+## About the Project
 
-**URL**: https://lovable.dev/projects/f860aef2-b848-4d45-bcbc-374e634e935d
+This project is a dynamic image gallery application that fetches and displays high-quality images from the **Unsplash API**. It allows users to browse, search, and view photos seamlessly, with a responsive and modern user interface.
 
-## How can I edit this code?
+The application was built to showcase the power of integrating third-party APIs with a clean front-end design, providing an intuitive experience for users to explore visual content.
 
-There are several ways of editing your application.
+## What It Does
 
-**Use Lovable**
+- **Browse Images**: Displays a curated grid of high-resolution images fetched from Unsplash.
+- **Search Functionality**: Allows users to search for images by keywords, powered by the Unsplash API.
+- **Responsive Design**: Ensures a seamless experience across devices, from desktops to mobiles.
+- **Infinite Scroll**: Loads more images as the user scrolls, enhancing performance and user engagement.
+- **Image Details**: Users can click on an image to view additional details, such as the photographer's name and description.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f860aef2-b848-4d45-bcbc-374e634e935d) and start prompting.
+## How We Built It
 
-Changes made via Lovable will be committed automatically to this repo.
+The project was developed using modern web technologies to ensure performance and scalability. We integrated the Unsplash API to fetch images dynamically, requiring an **API key** for authentication.
 
-**Use your preferred IDE**
+The front-end was crafted to prioritize user experience, with a focus on clean design and smooth interactions.
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## Unsplash API Key
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+To use the Unsplash API, we registered on the [Unsplash Developer Portal](https://unsplash.com/developers) to obtain an API key. This key is securely stored in an environment variable (`.env`) and used to authenticate API requests.
+
+The API enables the application to retrieve images, search for specific content, and access metadata about each photo.
+
+Example environment variable setup:
+
+```env
+VITE_UNSPLASH_API_KEY=your_unsplash_api_key_here
 
 Follow these steps:
 
 ```sh
 # Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+git clone <[YOUR_GIT_URL](https://github.com/Ashar086/visual-vault-explore.git)>
 
 # Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
@@ -54,20 +65,16 @@ npm run dev
 
 This project is built with:
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+- Vite: Fast build tool and development server.
 
-## How can I deploy this project?
+- TypeScript: Ensures type safety and better code maintainability.
 
-Simply open [Lovable](https://lovable.dev/projects/f860aef2-b848-4d45-bcbc-374e634e935d) and click on Share -> Publish.
+- React: Powers the dynamic and interactive UI.
 
-## Can I connect a custom domain to my Lovable project?
+- shadcn-ui: Provides accessible and customizable UI components.
 
-Yes, you can!
+- Tailwind CSS: Enables rapid and responsive styling.
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+- Unsplash API: Fetches high-quality images and metadata.
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- Supabase: For Authentication and database
